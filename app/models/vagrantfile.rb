@@ -1,0 +1,2 @@
+class Vagrantfile < ApplicationRecord
+end
