@@ -15,4 +15,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require thredded/dependencies/timeago
+//= require timeago/locales/zh_CN
+//= require thredded
 //= require_tree .
