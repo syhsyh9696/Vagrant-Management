@@ -1,0 +1,25 @@
+<ul class="breadcrumb">
+  <li><%= link_to "Home", root_path %></li>
+  <li class="active">Vagrantfiles</li>
+</ul>
+
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Vagrantfile</th>
+      <th>Author</th>
+      <th>Release Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tbody>
+      <% @vagrantfiles.each do |vagrantfile| %>
+        <tr>
+          <td>#</td>
+          <td><%= link_to(vagrantfile.id, vagrantfile_path(vagrantfile)) %></td>
+          <td><%= vagrantfile.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
