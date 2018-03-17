@@ -39,6 +39,8 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'devise-bootstrap-views'
 
+gem 'codemirror-rails'
+
 
 gem 'thredded', '~> 0.14.2'
 gem 'rails-i18n'

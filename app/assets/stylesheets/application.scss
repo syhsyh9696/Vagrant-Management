@@ -12,6 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require codemirror
+ *= require codemirror/themes/dracula
+ *= require codemirror/themes/monokai
+ *= require codemirror/themes/neat
  */
 
  //Import bootstrap-sprockets

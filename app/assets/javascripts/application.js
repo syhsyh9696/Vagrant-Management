@@ -18,4 +18,6 @@
 //= require thredded/dependencies/timeago
 //= require timeago/locales/zh_CN
 //= require thredded
+//= require codemirror
+//= require codemirror/modes/ruby
 //= require_tree .
