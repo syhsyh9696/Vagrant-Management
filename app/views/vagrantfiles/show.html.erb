@@ -1,5 +1,62 @@
-<ul class="breadcrumb">
-  <li><%= link_to "Home", root_path %></li>
-  <li><%= link_to "Vagrantfiles", vagrantfiles_path %></li>
-  <li class="active"><%= @vagrantfile.id %></li>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item active"><%= link_to("Vagrantfiles", vagrantfiles_path) %></li>
+        <li class="breadcrumb-item"><%= @vagrantfile.id %></li>
+      </ol>
+
+      <h1>
+        <%= @vagrantfile.filename %>
+        <small><%= @vagrantfile.system_name + " " + @vagrantfile.system_version %></small>
+      </h1>
+
+      <p class="lead">
+        by
+        <a href="#"><%= link_to(@vagrantfile.author, "#") %></a>
+      </p>
+
+      <hr>
+      <h4>Posted on <%= format_time @vagrantfile.created_at %></h4>
+      <hr>
+
+
+
+    </div>
+
+    <div class="col-md-4">
+      <div class="list-group">
+        <li class="list-group-item text-center">
+          Site News
+        </li>
+        <a href="#" class="list-group-item list-group-item-action active">
+          <h4 class="list-group-item-heading">List group item heading</h4>
+          <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <h4 class="list-group-item-heading">List group item heading</h4>
+          <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        </a>
+      </div>
+
+      <div class="list-group">
+        <li class="list-group-item text-center">
+          Category
+        </li>
+        <a href="#" class="list-group-item list-group-item-action active">
+          <h4 class="list-group-item-heading">List group item heading</h4>
+          <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <h4 class="list-group-item-heading">List group item heading</h4>
+          <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        </a>
+      </div>
+
+
+
+    </div>
+
+  </div>
+</div>
