@@ -21,7 +21,8 @@
       <h4>Posted on <%= format_time @vagrantfile.created_at %></h4>
       <hr>
 
-
+      <%= form.text_area :document_xml, id: 'document_xml' %>
+      <div id="editor" ></div>
 
     </div>
 

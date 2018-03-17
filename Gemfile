@@ -33,9 +33,12 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
+gem "font-awesome-rails"
 gem 'jquery-rails'
 
 gem 'devise'
+gem 'devise-bootstrap-views'
+
 
 gem 'thredded', '~> 0.14.2'
 gem 'rails-i18n'
