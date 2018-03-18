@@ -1,8 +1,22 @@
-<%= form_for @vagrantfile, url: {action: "create"}, html: {class: "form-horizontal"} do |f| %>
+<%= form_for @vagrantfile, html: {class: "form-horizontal"} do |f| %>
   <div class="form-group">
     <%= f.label :filename, :class => "col-lg-2 control-label" %>
     <div class="col-lg-10">
       <%= f.text_field :filename, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :system_name, :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_field :system_name, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :system_version, :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_field :system_version, :class => "form-control" %>
     </div>
   </div>
 
@@ -13,7 +27,47 @@
     </div>
   </div>
 
-  
+  <div class="form-group">
+    <%= f.label :configure, :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_area :configure, :class => "form-control", :rows => "10" %>
+    </div>
+  </div>
 
+  <div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
+  </div>
 
 <% end %>
+
+<script>
+var editor = CodeMirror.fromTextArea(document.getElementById("vagrantfile_configure"), {
+        lineNumbers: true,     // 显示行数
+        indentUnit: 4,         // 缩进单位为4
+        //styleActiveLine: true, // 当前行背景高亮
+        matchBrackets: true,   // 括号匹配
+        mode: 'ruby',     // HMTL混合模式
+        lineWrapping: true,    // 自动换行
+        theme: 'neat',      // 使用dracula模版
+        //readOnly: true,
+    });
+
+    editor.setOption("extraKeys", {
+        // Tab键换成4个空格
+        Tab: function(cm) {
+            var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
+            cm.replaceSelection(spaces);
+        },
+        // F11键切换全屏
+        "F11": function(cm) {
+            cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+        },
+        // Esc键退出全屏
+        "Esc": function(cm) {
+            if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+        }
+    });
+
+</script>

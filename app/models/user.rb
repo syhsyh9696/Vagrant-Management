@@ -7,4 +7,15 @@ class User < ApplicationRecord
   def admin?
     return self.admin
   end
+
+  def author_name; self.display_name; end
+
+  def display_name
+    if self.username.present?
+      self.username
+    else
+      self.email.split("@").first
+    end
+  end
+
 end

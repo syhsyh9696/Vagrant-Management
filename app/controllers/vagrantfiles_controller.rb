@@ -1,4 +1,6 @@
 class VagrantfilesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
+
   def index
     @vagrantfiles = Vagrantfile.all
   end
@@ -9,22 +11,33 @@ class VagrantfilesController < ApplicationController
 
   def new
     @vagrantfile = Vagrantfile.new
+    redirect_to root_path, alert: "You have no permission." if !current_user.admin?
+  end
+
+  def edit
+    @vagrantfile = Vagrantfile.find(params[:id])
+    redirect_to root_path, alert: "You have no permission." if !current_user.admin?
   end
 
   def create
     @vagrantfile = Vagrantfile.new(vagrantfile_params)
+    @vagrantfile.author = current_user.author_name
 
-    if current_user.admin?
-      @vagrantfile.author = current_user
-      if @vagrantfile.save
-        redirect_to vagrantfile_path(@vagrantfile)
-      else
-        render :new
-      end
-    else
-      flash[:danger] = "修改不可"
-    end
+    redirect_to vagrantfiles_path, notice: "Create vagrantfile success."
+  end
 
+  def update
+    @vagrantfile = Vagrantfile.find(params[:id])
+    @vagrantfile.update(vagrantfile_params)
+    redirect_to vagrantfiles_path, notice: "Update vagrantfile success."
+  end
+
+  def destroy
+    @vagrantfile = Vagrantfile.find(params[:id])
+    @vagrantfile.destroy
+
+    flash[:alert] = "Vagrantfile deleted"
+    redirect_to vagrantfiles_path
   end
 
   private
