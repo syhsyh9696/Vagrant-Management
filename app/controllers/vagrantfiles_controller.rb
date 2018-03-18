@@ -12,6 +12,25 @@ class VagrantfilesController < ApplicationController
   end
 
   def create
-    @vagrantfile = Vagrantfile.new
+    @vagrantfile = Vagrantfile.new(vagrantfile_params)
+
+    if current_user.admin?
+      @vagrantfile.author = current_user
+      if @vagrantfile.save
+        redirect_to vagrantfile_path(@vagrantfile)
+      else
+        render :new
+      end
+    else
+      flash[:danger] = "修改不可"
+    end
+
   end
+
+  private
+    def vagrantfile_params
+      params.require(:vagrantfile).permit(:filename, :remark, :configure, :system_name, :system_version, :version)
+    end
+
+
 end

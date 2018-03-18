@@ -1,0 +1,19 @@
+<%= form_for @vagrantfile, url: {action: "create"}, html: {class: "form-horizontal"} do |f| %>
+  <div class="form-group">
+    <%= f.label :filename, :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_field :filename, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :remark, :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_area :remark, :class => "form-control", :rows => "3" %>
+    </div>
+  </div>
+
+  
+
+
+<% end %>
