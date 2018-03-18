@@ -15,8 +15,7 @@ class VagrantfilesController < ApplicationController
   end
 
   def edit
-    @vagrantfile = Vagrantfile.find(params[:id])
-    redirect_to root_path, alert: "You have no permission." if !current_user.admin?
+    find_vagrantfile_and_check_permission
   end
 
   def create
@@ -27,17 +26,19 @@ class VagrantfilesController < ApplicationController
   end
 
   def update
-    @vagrantfile = Vagrantfile.find(params[:id])
-    @vagrantfile.update(vagrantfile_params)
-    redirect_to vagrantfiles_path, notice: "Update vagrantfile success."
+    find_vagrantfile_and_check_permission
+    if @vagrantfile.update(vagrantfile_params)
+      redirect_to vagrantfile_path(@vagrantfile), notice: "Update vagrantfile success."
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @vagrantfile = Vagrantfile.find(params[:id])
-    @vagrantfile.destroy
+    find_vagrantfile_and_check_permission
 
-    flash[:alert] = "Vagrantfile deleted"
-    redirect_to vagrantfiles_path
+    @vagrantfile.destroy
+    redirect_to vagrantfiles_path, alert: "Vagrantfile deleted"
   end
 
   private
@@ -45,5 +46,10 @@ class VagrantfilesController < ApplicationController
       params.require(:vagrantfile).permit(:filename, :remark, :configure, :system_name, :system_version, :version)
     end
 
+    def find_vagrantfile_and_check_permission
+      @vagrantfile = Vagrantfile.find(params[:id])
+
+      redirect_to root_path, alert: "You have no permission" unless current_user.admin?
+    end
 
 end
