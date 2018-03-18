@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   mount Thredded::Engine => '/forum'
 
-  resources :vagrantfiles, only:[:index, :show]
+  resources :vagrantfiles
 end

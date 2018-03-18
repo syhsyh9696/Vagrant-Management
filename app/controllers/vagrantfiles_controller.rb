@@ -7,5 +7,11 @@ class VagrantfilesController < ApplicationController
     @vagrantfile = Vagrantfile.find(params[:id])
   end
 
+  def new
+    @vagrantfile = Vagrantfile.new
+  end
 
+  def create
+    @vagrantfile = Vagrantfile.new
+  end
 end
