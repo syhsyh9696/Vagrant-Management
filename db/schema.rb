@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180319042343) do
+ActiveRecord::Schema.define(version: 20180319093031) do
 
   create_table "announcements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -311,6 +311,8 @@ ActiveRecord::Schema.define(version: 20180319042343) do
     t.string "system_name"
     t.string "system_version"
     t.string "version"
+    t.bigint "operatingsystem_id"
+    t.index ["operatingsystem_id"], name: "index_vagrantfiles_on_operatingsystem_id"
   end
 
   add_foreign_key "thredded_messageboard_users", "thredded_messageboards", on_delete: :cascade
