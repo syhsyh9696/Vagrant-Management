@@ -1,0 +1,26 @@
+<ul class="breadcrumb">
+  <li><%= link_to "Home", root_path %></li>
+  <li class="active">Experiments</li>
+</ul>
+
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Experiment</th>
+      <th>Author</th>
+      <th>Release Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tbody>
+      <% @experiments.each do |experiment| %>
+        <tr>
+          <td>#</td>
+          <td><%= link_to(experiment.title, experiment_path(experiment)) %></td>
+          <td><%= experiment.author %></td>
+          <td><%= experiment.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
