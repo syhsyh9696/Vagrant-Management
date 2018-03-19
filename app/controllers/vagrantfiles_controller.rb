@@ -21,8 +21,13 @@ class VagrantfilesController < ApplicationController
   def create
     @vagrantfile = Vagrantfile.new(vagrantfile_params)
     @vagrantfile.author = current_user.author_name
+    @vagrantfile.operatingsystem = Operatingsystem.find(vagrantfile_params[:operatingsystem_id])
 
-    redirect_to vagrantfiles_path, notice: "Create vagrantfile success."
+    if @vagrantfile.save
+      redirect_to vagrantfiles_path, notice: "Create vagrantfile success."
+    else
+      render :new
+    end
   end
 
   def update
@@ -43,7 +48,8 @@ class VagrantfilesController < ApplicationController
 
   private
     def vagrantfile_params
-      params.require(:vagrantfile).permit(:filename, :remark, :configure, :system_name, :system_version, :version)
+      params.require(:vagrantfile).permit(
+        :filename, :remark, :configure, :system_name, :system_version, :version, :operatingsystem_id)
     end
 
     def find_vagrantfile_and_check_permission

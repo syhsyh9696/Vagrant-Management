@@ -9,7 +9,7 @@
 
       <h1>
         <%= @vagrantfile.filename %>
-        <small><%= @vagrantfile.system_name + " " + @vagrantfile.system_version %></small>
+        <small><%= @vagrantfile.operatingsystem.system_name + " " + @vagrantfile.operatingsystem.system_version %></small>
       </h1>
 
       <p class="lead">
