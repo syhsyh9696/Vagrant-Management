@@ -6,4 +6,6 @@ class StaticController < ApplicationController
   def wiki
 
   end
+
+  def hall_of_fame
 end
