@@ -40,6 +40,7 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 
 gem 'codemirror-rails'
+gem 'grape'
 
 
 gem 'thredded', '~> 0.14.2'
