@@ -1,0 +1,22 @@
+<%= form_for @student, url: user_student, html: {class: "form-horizontal"} do |f| %>
+  <div class="form-group">
+    <%= f.label :name, :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_field :stu_name, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :number, :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_field :stu_number, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
+  </div>
+
+<% end %>

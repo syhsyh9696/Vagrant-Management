@@ -29,6 +29,7 @@
               <i class="fa fa-wheelchair" aria-hidden="true"></i> <%= current_user.display_name %> <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="download">
+              <li><%= link_to("Update", edit_user_registration_path) %></li>
               <li><%= link_to("Log out", destroy_user_session_path, method: :delete) %> </li>
             </ul>
           </li>

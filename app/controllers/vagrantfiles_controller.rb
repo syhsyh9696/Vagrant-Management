@@ -48,7 +48,7 @@ class VagrantfilesController < ApplicationController
 
   private
     def vagrantfile_params
-      params.require(:vagrantfile).permit(
+      params.require(:  ).permit(
         :filename, :remark, :configure, :system_name, :system_version, :version, :operatingsystem_id)
     end
 
