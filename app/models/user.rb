@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_one :student
 
+  has_many :submissions
+
   def admin?
     return self.admin
   end

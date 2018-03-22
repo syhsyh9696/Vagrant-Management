@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180320071538) do
+ActiveRecord::Schema.define(version: 20180321063658) do
 
   create_table "announcements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(version: 20180320071538) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_students_on_user_id"
+  end
+
+  create_table "submissions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean "status"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "experiment_id"
+    t.index ["experiment_id"], name: "index_submissions_on_experiment_id"
+    t.index ["user_id"], name: "index_submissions_on_user_id"
   end
 
   create_table "thredded_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
