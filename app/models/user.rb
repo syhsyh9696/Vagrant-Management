@@ -12,6 +12,11 @@ class User < ApplicationRecord
     return self.admin
   end
 
+  def student?
+    return false if self.stunum == nil
+    return true if self.stunum != nil
+  end
+
   def author_name; self.display_name; end
 
   def display_name
