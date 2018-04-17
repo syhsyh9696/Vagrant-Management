@@ -28,4 +28,15 @@ class User < ApplicationRecord
     end
   end
 
+  def follow_experiment(experiment_id)
+    self.experiments << Experiment.find(experiment_id) unless self.experiments.include?(Experiment.find(experiment_id))
+  end
+
+  def unfollow_experiment(experiment_id)
+    self.experiments.delete(Experiment.find(experiment_id)) if self.experiments.include?(Experiment.find(experiment_id))
+  end
+
+  def following?(other_experiment)
+    self.experiments.include?(other_experiment)
+  end
 end

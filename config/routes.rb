@@ -23,6 +23,6 @@ Rails.application.routes.draw do
     resources :submissions
   end
 
-
-
+  post 'relationships/experiments', to: 'relationships#follow_experiment'
+  delete 'relationships/experiments', to: 'relationships#unfollow_experiment'
 end

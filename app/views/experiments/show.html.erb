@@ -16,8 +16,20 @@
         <a href="#"><%= link_to(@experiment.author, "#") %></a>
       </p>
 
+      <% unless !current_user %>
+        <div id="follow_form">
+          <% if current_user.following?(@experiment) %>
+            <%= render 'unfollow' %>
+          <% else %>
+            <%= render 'follow' %>
+          <% end %>
+        </div>
+      <% end %>
+
       <hr>
-      <h4>Posted on <%= format_time @experiment.created_at %></h4>
+      <h4>
+        Posted on <%= format_time @experiment.created_at %>
+      </h4>
       <hr>
 
     </div>
