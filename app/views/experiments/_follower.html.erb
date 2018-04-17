@@ -1,0 +1,21 @@
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Username</th>
+      <th>Follower Name</th>
+      <th>Follower Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tbody>
+      <% @experiment.users.each do |follower| %>
+        <tr>
+          <td>#</td>
+          <td><%= link_to(follower.username, user_path(follower)) %></td>
+          <td><%= follower.stuname %></td>
+          <td><%= follower.stunum %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
