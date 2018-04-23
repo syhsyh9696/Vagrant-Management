@@ -8,6 +8,9 @@ class ExperimentsController < ApplicationController
     @judgement = @experiment.judgement
   end
 
+  def vagrantfile
+    @experiment = Experiment.find(params[:experiment_id])
+  end
   
 
 end
