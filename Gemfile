@@ -38,6 +38,7 @@ gem 'jquery-rails'
 
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem 'simple_token_authentication'
 
 gem 'codemirror-rails'
 gem 'grape'
