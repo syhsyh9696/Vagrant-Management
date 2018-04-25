@@ -32,14 +32,17 @@
       </h4>
       <hr>
       
-      <% unless !current_user.admin? %>
-        <h4>Follower</h4>
-        <%= render 'follower' %>
+      <% unless !current_user %>
+        <% if current_user.admin? %>
+          <h4>Follower</h4>
+          <%= render 'follower' %>
+        <% end %>
       <% end %>
-
+      
       <hr>
       <%= render "generator" %>
-
+      <br>
+      <a href="#" class="btn btn-primary">Start all virtualmachine</a>
     </div>
 
     <div class="col-md-4">
