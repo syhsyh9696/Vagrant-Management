@@ -2,7 +2,7 @@ class ExperimentsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
 
   def index
-    @experiments = Experiment.all
+    @experiments = Experiment.all.page(params[:page]).per(10)
   end
 
   def show
