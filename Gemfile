@@ -42,6 +42,10 @@ gem 'simple_token_authentication'
 
 gem 'codemirror-rails'
 gem 'grape'
+gem 'grape-entity'
+gem 'grape-swagger'
+gem 'swagger-ui_rails'
+gem 'doorkeeper'
 
 
 gem 'thredded', '~> 0.14.2'
