@@ -36,6 +36,9 @@ gem 'bootswatch-rails'
 gem "font-awesome-rails"
 gem 'jquery-rails'
 
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
+
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'simple_token_authentication'
