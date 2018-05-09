@@ -4,6 +4,8 @@ class Experiment < ApplicationRecord
 
   has_and_belongs_to_many :users
 
+  validates :title, presence: true
+
   def generate_vagrantfile_for_followers
     vagrant_nodes = Array.new
     followers = self.users

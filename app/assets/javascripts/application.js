@@ -20,4 +20,5 @@
 //= require thredded
 //= require codemirror
 //= require codemirror/modes/ruby
+//= require bootstrap-datepicker
 //= require_tree .

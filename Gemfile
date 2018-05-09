@@ -35,6 +35,7 @@ gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 gem "font-awesome-rails"
 gem 'jquery-rails'
+gem 'bootstrap-datepicker-rails'
 
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'

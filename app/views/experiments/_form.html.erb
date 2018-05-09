@@ -1,0 +1,32 @@
+<center><h2>Create new experiment</h2></center>
+<br>
+<%= form_for @experiment, html: {class: "form-horizontal"} do |f| %>
+  <% if @experiment.errors.any? %>
+    <ul>
+      <% @experiment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title, :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_field :title, :class => "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :expiration_date, :class => "col-lg-2 control-label" %>
+    <div class="col-lg-10">
+      <%= f.text_field :expiration_date, :class => "form-control", data:{ provide: 'datepicker' } %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
+  </div>
+
+<% end %>
