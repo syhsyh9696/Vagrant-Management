@@ -27,4 +27,6 @@ Rails.application.routes.draw do
 
   post 'relationships/experiments', to: 'relationships#follow_experiment'
   delete 'relationships/experiments', to: 'relationships#unfollow_experiment'
+
+  mount Test::API => '/test' #url: localhost/test/api/v1/hello
 end
