@@ -14,6 +14,23 @@ class ExperimentsController < ApplicationController
   def serverfile
     @experiment = Experiment.find(params[:id])
   end
+
+  def serverfile_content
+    @content = Experiment.find(params[:id]).generate_vagrantfile_for_followers
+  end
+
+  def serverfile_download
+    @experiment = Experiment.find(params[:id])
+    # @path = "#{Rails.root}/public/experiments/experiment_#{@experiment.id}_vagrantserverfile.rb"
+    # @file = File.open(@path, "w")
+    # @file << @experiment.generate_vagrantfile_for_followers
+    # @file.close
+    # system("ruby-beautify -c 2 -s --overwrite #{@path}")
+    
+    # send_file(@path, filename: "experiment_#{@experiment.id}_vagrantserverfile.rb", stream: false)
+    send_data(@experiment.generate_vagrantfile_for_followers,
+              filename: "experiment_#{@experiment.id}_vagrantserverfile.rb")
+  end
   
   def new
     @experiment = Experiment.new

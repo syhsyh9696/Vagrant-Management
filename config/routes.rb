@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :experiments do 
     member do 
       get 'serverfile'
+      get 'serverfile_content'
+      get 'serverfile_download'
     end
   end
 

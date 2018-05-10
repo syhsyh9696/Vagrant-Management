@@ -51,6 +51,9 @@ gem 'grape-swagger'
 gem 'swagger-ui_rails'
 gem 'doorkeeper'
 
+# Code beautify
+gem 'ruby-beautify' 
+
 
 gem 'thredded', '~> 0.14.2'
 gem 'rails-i18n'
