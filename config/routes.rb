@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :vagrantfiles
   resources :experiments do 
-    get 'vagrantfile', to: 'experiments#vagrantfile'
+    member do 
+      get 'serverfile'
+    end
   end
 
 =begin
