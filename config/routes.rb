@@ -4,7 +4,12 @@ Rails.application.routes.draw do
 
   mount Thredded::Engine => '/forum'
 
-  resources :vagrantfiles
+  resources :vagrantfiles do 
+    member do 
+      get 'download'
+    end
+  end
+
   resources :experiments do 
     member do 
       get 'serverfile'

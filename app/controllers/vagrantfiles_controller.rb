@@ -46,6 +46,12 @@ class VagrantfilesController < ApplicationController
     redirect_to vagrantfiles_path, alert: "Vagrantfile deleted"
   end
 
+  def download
+    @vagrantfile = Vagrantfile.find(params[:id])
+    send_data(@vagrantfile.configure,
+              filename: "Vagrantfile")
+  end
+
   private
     def vagrantfile_params
       params.require(:vagrantfile).permit(

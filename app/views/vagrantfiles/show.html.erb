@@ -23,6 +23,9 @@
 
       <div id="editor" >
         <textarea class="form-control" name = "code" id="code"><%= @vagrantfile.configure %></textarea>
+        <br />
+        <%= link_to("Edit", edit_vagrantfile_path, class: "btn btn-primary btn-lg") %>
+        <%= link_to("Download", download_vagrantfile_path, class: "btn btn-default btn-lg") %>
       </div>
 
     </div>
@@ -30,33 +33,17 @@
     <div class="col-md-4">
       <div class="list-group">
         <li class="list-group-item text-center">
-          Site News
+          File Information
         </li>
         <a href="#" class="list-group-item list-group-item-action active">
-          <h4 class="list-group-item-heading">List group item heading</h4>
-          <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+          <h4 class="list-group-item-heading">File Version</h4>
+          <p class="list-group-item-text">Version <%= @vagrantfile.version %></p>
         </a>
         <a href="#" class="list-group-item list-group-item-action">
-          <h4 class="list-group-item-heading">List group item heading</h4>
-          <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+          <h4 class="list-group-item-heading">File Remark</h4>
+          <p class="list-group-item-text"><%= @vagrantfile.remark %></p>
         </a>
       </div>
-
-      <div class="list-group">
-        <li class="list-group-item text-center">
-          Category
-        </li>
-        <a href="#" class="list-group-item list-group-item-action active">
-          <h4 class="list-group-item-heading">List group item heading</h4>
-          <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action">
-          <h4 class="list-group-item-heading">List group item heading</h4>
-          <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        </a>
-      </div>
-
-
 
     </div>
 
