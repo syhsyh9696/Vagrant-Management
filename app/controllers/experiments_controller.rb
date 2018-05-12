@@ -11,6 +11,10 @@ class ExperimentsController < ApplicationController
     @followers = @experiment.users.page(params[:page]).per(10)
   end
 
+  def content
+    @experiment = Experiment.find(params[:id])
+  end
+
   def serverfile
     @experiment = Experiment.find(params[:id])
   end
@@ -71,7 +75,7 @@ class ExperimentsController < ApplicationController
   private
     def experiment_params
       params.require(:experiment).permit(
-        :title, :author, :expiration_date)
+        :title, :author, :expiration_date, :content)
     end
 
     def find_experiment_and_check_permission
