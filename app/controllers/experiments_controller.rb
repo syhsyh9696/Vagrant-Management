@@ -48,6 +48,10 @@ class ExperimentsController < ApplicationController
     end
   end
 
+  def edit
+    find_experiment_and_check_permission
+  end
+
   def update 
     find_experiment_and_check_permission
     if @experiment.update(experiment_params)

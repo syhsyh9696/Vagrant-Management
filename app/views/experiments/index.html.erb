@@ -20,6 +20,12 @@
           <td><%= link_to(experiment.title, experiment_path(experiment)) %></td>
           <td><%= experiment.author %></td>
           <td><%= experiment.created_at %></td>
+          <% if current_user && current_user.admin %>
+          <td>
+            <%= link_to("Modify", edit_experiment_path(experiment), class: "btn btn-xs btn-info") %>
+            <%= link_to("Delete", experiment_path(experiment), class: "btn btn-xs btn-danger", method: :delete, data: { confirm: "Are you sure?" } )%>
+          </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

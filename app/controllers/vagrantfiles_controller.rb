@@ -2,7 +2,7 @@ class VagrantfilesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
 
   def index
-    @vagrantfiles = Vagrantfile.all.page(params[:page]).per(1)
+    @vagrantfiles = Vagrantfile.all.page(params[:page]).per(10)
   end
 
   def show

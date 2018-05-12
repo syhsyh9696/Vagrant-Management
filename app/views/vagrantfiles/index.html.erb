@@ -20,6 +20,12 @@
           <td><%= link_to(vagrantfile.filename, vagrantfile_path(vagrantfile)) %></td>
           <td><%= vagrantfile.author %></td>
           <td><%= vagrantfile.created_at %></td>
+          <% if current_user && current_user.admin %>
+          <td>
+            <%= link_to("Modify", edit_vagrantfile_path(vagrantfile), class: "btn btn-xs btn-info") %>
+            <%= link_to("Delete", vagrantfile_path(vagrantfile), class: "btn btn-xs btn-danger", method: :delete, data: { confirm: "Are you sure?" } )%>
+          </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
