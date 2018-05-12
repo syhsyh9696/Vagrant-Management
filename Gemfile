@@ -54,6 +54,8 @@ gem 'doorkeeper'
 # Code beautify
 gem 'ruby-beautify' 
 
+gem 'simditor'
+
 
 gem 'thredded', '~> 0.14.2'
 gem 'rails-i18n'

@@ -21,4 +21,5 @@
 //= require codemirror
 //= require codemirror/modes/ruby
 //= require bootstrap-datepicker
+//= require simditor
 //= require_tree .
