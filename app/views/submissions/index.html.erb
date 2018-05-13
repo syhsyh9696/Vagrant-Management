@@ -1,6 +1,5 @@
 <ul class="breadcrumb">
   <li><%= link_to "Home", root_path %></li>
-  <li><%= link_to "Users", user_path(current_user) %></li>
   <li class="active">Submission</li>
 </ul>
 
@@ -8,9 +7,9 @@
   <thead>
     <tr>
       <th>#</th>
-      <th>Submission</th>
+      <th>ID</th>
       <th>Status</th>
-      <th>Create Time</th>
+      <th>User</th>
     </tr>
   </thead>
   <tbody>
@@ -19,8 +18,8 @@
         <tr>
           <td>#</td>
           <td><%= link_to(submission.id, submission_path(submission)) %></td>
-          <td><%= submission.status %></td>
-          <td><%= submission.created_at %></td>
+          <td><%= submission.status.to_s.upcase %></td>
+          <td><%= link_to(submission.user.author_name, user_path(submission.user)) %></td>
         </tr>
       <% end %>
     </tbody>
