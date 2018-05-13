@@ -33,10 +33,8 @@
       <hr>
       
       <% unless !current_user %>
-        <% if current_user.admin? %>
-          <h4>Follower</h4>
-          <%= render 'follower' %>
-        <% end %>
+        <h4>Submissions</h4>
+        <%= render 'submission'%>
       <% end %>
       
       <hr>
@@ -59,6 +57,13 @@
           <h4 class="list-group-item-heading">Experiment Content</h4>
           <p class="list-group-item-text">Link to the experiment content.</p>
         <% end %>
+        <% if current_user.admin? %>
+          <%= link_to followers_experiment_path(@experiment), class: "list-group-item list-group-item-action" do %>
+            <h4 class="list-group-item-heading">Experiment Followers</h4>
+            <p class="list-group-item-text">Link to the experiment follower.</p>
+          <% end %>
+        <% end %>
+
       </div>
 
       <div class="list-group">

@@ -8,6 +8,13 @@ class ExperimentsController < ApplicationController
   def show
     @experiment = Experiment.find(params[:id])
     @judgement = @experiment.judgement
+    if current_user
+      @submissions = current_user.submissions.where(:experiment_id => params[:id]).page(params[:page]).per(10)
+    end
+  end
+
+  def followers
+    @experiment = Experiment.find(params[:id])
     @followers = @experiment.users.page(params[:page]).per(10)
   end
 

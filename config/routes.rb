@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :experiments do 
     member do 
+      get 'followers'
       get 'content'
       get 'serverfile'
       get 'serverfile_content'
