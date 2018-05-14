@@ -82,7 +82,7 @@ class ExperimentsController < ApplicationController
   private
     def experiment_params
       params.require(:experiment).permit(
-        :title, :author, :expiration_date, :content)
+        :title, :author, :expiration_date, :content, :remark, :judge)
     end
 
     def find_experiment_and_check_permission
