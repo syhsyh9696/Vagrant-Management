@@ -21,6 +21,7 @@ class User < ApplicationRecord
   end
 
   def author_name; self.display_name; end
+  def name; self.author_name; end
 
   def display_name
     if self.username.present?

@@ -8,4 +8,6 @@ class StaticController < ApplicationController
   end
 
   def hall_of_fame
+    
+  end
 end
