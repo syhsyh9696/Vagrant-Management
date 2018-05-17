@@ -79,6 +79,14 @@ class ExperimentsController < ApplicationController
     redirect_to experiment_path, alert: "Experiment deleted."
   end
 
+  def feed
+    @experiments = Experiment.limit(10)
+    respond_to do |format|
+      format.html
+      format.rss { render :layout => false }
+    end
+  end
+
   private
     def experiment_params
       params.require(:experiment).permit(

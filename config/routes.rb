@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   end
 
   resources :experiments do 
+    collection do
+      get 'feed', format: 'rss'
+    end
+
     member do 
       get 'followers'
       get 'content'
@@ -40,6 +44,11 @@ Rails.application.routes.draw do
 
   post 'relationships/experiments', to: 'relationships#follow_experiment'
   delete 'relationships/experiments', to: 'relationships#unfollow_experiment'
+
+  # Static controller
+  get '/wiki', to: 'static#wiki'
+  get '/rss', to: 'static#rss'
+  get '/hof', to: 'static#hall_of_fame'
 
   mount Test::API => '/test' #url: localhost/test/api/v1/hello
   mount Upload::API => '/upload'

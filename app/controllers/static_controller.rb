@@ -7,6 +7,10 @@ class StaticController < ApplicationController
 
   end
 
+  def rss
+    
+  end
+
   def hall_of_fame
     
   end
