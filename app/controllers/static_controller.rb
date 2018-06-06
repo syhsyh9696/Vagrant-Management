@@ -11,7 +11,7 @@ class StaticController < ApplicationController
 
   end
   
-  def hall_of_fame
+  def hof
     
   end
 end

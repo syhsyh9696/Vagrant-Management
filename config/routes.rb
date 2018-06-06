@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   # Static controller
   get '/wiki', to: 'static#wiki'
   get '/rss', to: 'static#rss'
-  get '/hof', to: 'static#hall_of_fame'
+  get '/hof', to: 'static#hof'
   get '/feed', to: 'static#feed'
 
   mount Test::API => '/test' #url: localhost/test/api/v1/hello
