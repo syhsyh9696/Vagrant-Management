@@ -1,1 +1,50 @@
-<h1><%= @submission.id %></h1>
+<div class="container">
+  <center>
+    <h1>Submission Report</h1>
+    <% if @submission.status %>
+      <span class="label label-success">Success</span>
+    <% else %>
+      <span class="label label-danger">Failure</span>
+    <% end %>
+  </center>
+  <hr>
+  <div class="row">
+    <div class="col-lg-3">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <span class="badge label label-primary"><%= @submission.id %></span>
+          Submission ID
+        </li>
+
+        <li class="list-group-item">
+          <span class="badge"><%= @submission.experiment.id %></span>
+          Experiment ID
+        </li>
+      </ul>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Student Name</div>
+        <div class="panel-body">
+          <%= @submission.user.username %>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Student Number</div>
+        <div class="panel-body">
+          <%= @submission.user.stunum %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-9">
+      <div class="well">
+        <h3>Submission content</h3>
+        <br />
+        <%= @submission.content %>
+      </div>
+    </div>
+
+  </div>
+  <hr>
+</div>
