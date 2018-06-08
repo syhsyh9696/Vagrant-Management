@@ -26,7 +26,7 @@
   <div class="form-group">
     <%= f.label :expiration_date, :class => "col-lg-2 control-label" %>
     <div class="col-lg-10">
-      <%= f.text_field :expiration_date, :class => "form-control", data:{ provide: 'datepicker' } %>
+      <%= f.text_field :expiration_date, :class => "form-control", data:{ provide: 'datepicker', 'date-format' => 'yyyy-mm-dd', 'date-autoclose' => 'true' } %>
     </div>
   </div>
 
